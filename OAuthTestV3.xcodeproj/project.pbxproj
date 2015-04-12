@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CED82C0B1ADAB04200BB6739 /* EntryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CED82C0A1ADAB04200BB6739 /* EntryTableViewCell.xib */; };
+		CED82C0D1ADAB3C600BB6739 /* RoomEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED82C0C1ADAB3C600BB6739 /* RoomEntry.swift */; };
 		CEDD165D1AD9B185006DAD5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD165C1AD9B185006DAD5C /* AppDelegate.swift */; };
 		CEDD165F1AD9B185006DAD5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD165E1AD9B185006DAD5C /* ViewController.swift */; };
 		CEDD16621AD9B185006DAD5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDD16601AD9B185006DAD5C /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CED82C0A1ADAB04200BB6739 /* EntryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntryTableViewCell.xib; sourceTree = "<group>"; };
+		CED82C0C1ADAB3C600BB6739 /* RoomEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomEntry.swift; sourceTree = "<group>"; };
 		CEDD16571AD9B185006DAD5C /* OAuthTestV3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OAuthTestV3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDD165B1AD9B185006DAD5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEDD165C1AD9B185006DAD5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				CEDD16631AD9B185006DAD5C /* Images.xcassets */,
 				CEDD16651AD9B185006DAD5C /* LaunchScreen.xib */,
 				CEDD165A1AD9B185006DAD5C /* Supporting Files */,
+				CED82C0A1ADAB04200BB6739 /* EntryTableViewCell.xib */,
+				CED82C0C1ADAB3C600BB6739 /* RoomEntry.swift */,
 			);
 			path = OAuthTestV3;
 			sourceTree = "<group>";
@@ -250,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED82C0B1ADAB04200BB6739 /* EntryTableViewCell.xib in Resources */,
 				CEDD16621AD9B185006DAD5C /* Main.storyboard in Resources */,
 				CEDD16671AD9B185006DAD5C /* LaunchScreen.xib in Resources */,
 				CEDD16641AD9B185006DAD5C /* Images.xcassets in Resources */,
@@ -270,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED82C0D1ADAB3C600BB6739 /* RoomEntry.swift in Sources */,
 				CEDD165F1AD9B185006DAD5C /* ViewController.swift in Sources */,
 				CEDD165D1AD9B185006DAD5C /* AppDelegate.swift in Sources */,
 			);
