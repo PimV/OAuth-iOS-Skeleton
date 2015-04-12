@@ -13,6 +13,7 @@
 		CEDD16641AD9B185006DAD5C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEDD16631AD9B185006DAD5C /* Images.xcassets */; };
 		CEDD16671AD9B185006DAD5C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDD16651AD9B185006DAD5C /* LaunchScreen.xib */; };
 		CEDD16731AD9B185006DAD5C /* OAuthTestV3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD16721AD9B185006DAD5C /* OAuthTestV3Tests.swift */; };
+		CEDD16871AD9B1CE006DAD5C /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEDD16841AD9B1B0006DAD5C /* OAuthSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,6 +23,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = CEDD16561AD9B185006DAD5C;
 			remoteInfo = OAuthTestV3;
+		};
+		CEDD16811AD9B1B0006DAD5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEDD167C1AD9B1B0006DAD5C /* OAuthSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F451E3C5195B8CD80051434C;
+			remoteInfo = OAuthSwiftDemo;
+		};
+		CEDD16831AD9B1B0006DAD5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEDD167C1AD9B1B0006DAD5C /* OAuthSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F435027A1A6791B200038A29;
+			remoteInfo = OAuthSwift;
+		};
+		CEDD16851AD9B1C2006DAD5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CEDD167C1AD9B1B0006DAD5C /* OAuthSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F43502791A6791B200038A29;
+			remoteInfo = OAuthSwift;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -36,6 +58,7 @@
 		CEDD166C1AD9B185006DAD5C /* OAuthTestV3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OAuthTestV3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDD16711AD9B185006DAD5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEDD16721AD9B185006DAD5C /* OAuthTestV3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTestV3Tests.swift; sourceTree = "<group>"; };
+		CEDD167C1AD9B1B0006DAD5C /* OAuthSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthSwift.xcodeproj; path = "../../../Downloads/OAuthSwift-master-4/OAuthSwift.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEDD16871AD9B1CE006DAD5C /* OAuthSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +83,7 @@
 		CEDD164E1AD9B185006DAD5C = {
 			isa = PBXGroup;
 			children = (
+				CEDD167C1AD9B1B0006DAD5C /* OAuthSwift.xcodeproj */,
 				CEDD16591AD9B185006DAD5C /* OAuthTestV3 */,
 				CEDD166F1AD9B185006DAD5C /* OAuthTestV3Tests */,
 				CEDD16581AD9B185006DAD5C /* Products */,
@@ -112,6 +137,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CEDD167D1AD9B1B0006DAD5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEDD16821AD9B1B0006DAD5C /* OAuthSwiftDemo.app */,
+				CEDD16841AD9B1B0006DAD5C /* OAuthSwift.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,6 +160,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				CEDD16861AD9B1C2006DAD5C /* PBXTargetDependency */,
 			);
 			name = OAuthTestV3;
 			productName = OAuthTestV3;
@@ -179,6 +214,12 @@
 			mainGroup = CEDD164E1AD9B185006DAD5C;
 			productRefGroup = CEDD16581AD9B185006DAD5C /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CEDD167D1AD9B1B0006DAD5C /* Products */;
+					ProjectRef = CEDD167C1AD9B1B0006DAD5C /* OAuthSwift.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				CEDD16561AD9B185006DAD5C /* OAuthTestV3 */,
@@ -186,6 +227,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CEDD16821AD9B1B0006DAD5C /* OAuthSwiftDemo.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = OAuthSwiftDemo.app;
+			remoteRef = CEDD16811AD9B1B0006DAD5C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CEDD16841AD9B1B0006DAD5C /* OAuthSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = OAuthSwift.framework;
+			remoteRef = CEDD16831AD9B1B0006DAD5C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CEDD16551AD9B185006DAD5C /* Resources */ = {
@@ -232,6 +290,11 @@
 			isa = PBXTargetDependency;
 			target = CEDD16561AD9B185006DAD5C /* OAuthTestV3 */;
 			targetProxy = CEDD166D1AD9B185006DAD5C /* PBXContainerItemProxy */;
+		};
+		CEDD16861AD9B1C2006DAD5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OAuthSwift;
+			targetProxy = CEDD16851AD9B1C2006DAD5C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -411,6 +474,7 @@
 				CEDD16781AD9B185006DAD5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CEDD16791AD9B185006DAD5C /* Build configuration list for PBXNativeTarget "OAuthTestV3Tests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +483,7 @@
 				CEDD167B1AD9B185006DAD5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

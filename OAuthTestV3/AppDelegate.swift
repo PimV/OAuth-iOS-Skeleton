@@ -7,15 +7,53 @@
 //
 
 import UIKit
+import OAuthSwift
+
+
+
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    let oauthswift = OAuth1Swift(
+        consumerKey:    "133d15c89cd1187784f48fff59fd7c2f0f4674fe",
+        consumerSecret: "2dc073a5eac796c04e724c04d231544fba31682d",
+        requestTokenUrl: "https://publicapi.avans.nl/oauth/request_token",
+        authorizeUrl:    "https://publicapi.avans.nl/oauth/login.php",
+        accessTokenUrl:  "https://publicapi.avans.nl/oauth/access_token"
+    )
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // OAuth1.0        
+        oauthswift.authorizeWithCallbackURL( NSURL(string: "oauth-swift://oauth-callback/avans")!, success: {
+            credential, response in            println("success")
+            
+            }, failure: {(error:NSError!) -> Void in
+                println(error.localizedDescription)
+                println("ERROR")
+            }
+        )
+        
+        
+        
+        return true
+    }
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        println(url)
+        if (url.host == "oauth-callback") {
+            if (url.path!.hasPrefix("/avans")) {
+                println("IROCK")
+                    OAuth1Swift.handleOpenURL(url)
+            }
+        } else {
+            // Google provider is the only one wuth your.bundle.id url schema.
+            OAuth2Swift.handleOpenURL(url)
+        }
         return true
     }
 
