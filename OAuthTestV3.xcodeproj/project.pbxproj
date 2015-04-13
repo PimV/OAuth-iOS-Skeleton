@@ -16,6 +16,7 @@
 		CEDD16641AD9B185006DAD5C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEDD16631AD9B185006DAD5C /* Images.xcassets */; };
 		CEDD16671AD9B185006DAD5C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDD16651AD9B185006DAD5C /* LaunchScreen.xib */; };
 		CEDD16731AD9B185006DAD5C /* OAuthTestV3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD16721AD9B185006DAD5C /* OAuthTestV3Tests.swift */; };
+		F12F528C1ADC254400D91ABA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12F528B1ADC254400D91ABA /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		CEDD166C1AD9B185006DAD5C /* OAuthTestV3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OAuthTestV3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDD16711AD9B185006DAD5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEDD16721AD9B185006DAD5C /* OAuthTestV3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthTestV3Tests.swift; sourceTree = "<group>"; };
+		F12F528B1ADC254400D91ABA /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		CEDD16591AD9B185006DAD5C /* OAuthTestV3 */ = {
 			isa = PBXGroup;
 			children = (
+				F12F528B1ADC254400D91ABA /* SecondViewController.swift */,
 				CEDD165C1AD9B185006DAD5C /* AppDelegate.swift */,
 				CEDD165E1AD9B185006DAD5C /* ViewController.swift */,
 				CEDD16601AD9B185006DAD5C /* Main.storyboard */,
@@ -277,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F12F528C1ADC254400D91ABA /* SecondViewController.swift in Sources */,
 				CED82C0D1ADAB3C600BB6739 /* RoomEntry.swift in Sources */,
 				CEDD165F1AD9B185006DAD5C /* ViewController.swift in Sources */,
 				CEDD165D1AD9B185006DAD5C /* AppDelegate.swift in Sources */,

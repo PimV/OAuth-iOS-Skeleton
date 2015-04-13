@@ -37,6 +37,7 @@ class ViewController: UIViewController {
         fireMethod()
     }
     
+    
     var defaultItems: [(String, String)] = [
         ("08:00 - 08:45", "ONBEKEND"),
         ("08:45 - 09:30", "ONBEKEND"),
@@ -100,7 +101,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         datePickerView.tag = 0
         roomPickerView.tag = 1
-        
+        fireMethod()
         datePickerView.selectRow(0, inComponent: 0, animated: false)
         roomPickerView.selectRow(0, inComponent: 0, animated: false)
         
@@ -117,11 +118,30 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     func fireMethod() {
         var parameters =  Dictionary<String, AnyObject>()
-        parameters["start"] = "2015-03-05"
-        parameters["end"] = "2015-03-12"
-        parameters["filter"] = "OB2"
+        
+        var currentStartDate: String = "2015-03-05"
+        var currentEndDate: String = "2015-03-12"
+        var rooms: String = "OB2"
+        
+        var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if let dateStartNotNill = defaults.objectForKey("dateStart") as? String {
+            currentStartDate = defaults.objectForKey("dateStart") as! String
+        }
+        if let dateEndNotNill = defaults.objectForKey("dateEnd") as? String {
+            currentEndDate = defaults.objectForKey("dateEnd") as! String
+        }
+        if let roomsNotNill = defaults.objectForKey("rooms") as? String {
+            rooms = defaults.objectForKey("rooms") as! String
+        }
+        
+        
+        parameters["start"] = currentStartDate
+        parameters["end"] = currentEndDate
+        parameters["filter"] = rooms
         parameters["type"] = "all"
         //items.removeAll()
         delegate.oauthswift.client.get("https://publicapi.avans.nl/oauth/lokaalbeschikbaarheid/", parameters: parameters,
