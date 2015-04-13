@@ -101,7 +101,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         datePickerView.tag = 0
         roomPickerView.tag = 1
-        fireMethod()
+        if !delegate.oauthswift.client.getUserDetails().oauth_token.isEmpty {
+            fireMethod()
+        }
+        //fireMethod()
         datePickerView.selectRow(0, inComponent: 0, animated: false)
         roomPickerView.selectRow(0, inComponent: 0, animated: false)
         
@@ -143,7 +146,8 @@ class ViewController: UIViewController {
         parameters["end"] = currentEndDate
         parameters["filter"] = rooms
         parameters["type"] = "all"
-        //items.removeAll()
+        items.removeAll()
+        self.myData.removeAll()
         delegate.oauthswift.client.get("https://publicapi.avans.nl/oauth/lokaalbeschikbaarheid/", parameters: parameters,
             success: {
                 data, response in

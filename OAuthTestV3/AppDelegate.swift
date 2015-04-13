@@ -29,20 +29,88 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        // OAuth1.0
-        oauthswift.authorizeWithCallbackURL( NSURL(string: "oauth-swift://oauth-callback/avans")!, success: {
-            credential, response in            println("success")
+        var defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        
+        cacheExpired(defaults, duration: 1)
+        
+        var oauth_token: String = ""
+        var oauth_token_secret: String = ""
+        
+        if let tokenNotNill = defaults.objectForKey("oauth_token") as? String {
+            oauth_token = defaults.objectForKey("oauth_token") as! String
+        }
+        if let secretNotNill = defaults.objectForKey("oauth_token_secret") as? String {
+            oauth_token_secret = defaults.objectForKey("oauth_token_secret") as! String
+        }
+        if !oauth_token.isEmpty && !oauth_token_secret.isEmpty {
+            oauthswift.client.setUserDetails(oauth_token, secret: oauth_token_secret)
+            return true
+        } else {
+            oauthswift.authorizeWithCallbackURL( NSURL(string: "oauth-swift://oauth-callback/avans")!, success: {
+                credential, response in            println("success")
+                var myCred: OAuthSwiftCredential = credential
+                
+                defaults.setObject(myCred.oauth_token, forKey: "oauth_token")
+                defaults.setObject(myCred.oauth_token_secret, forKey: "oauth_token_secret")
+                defaults.synchronize()
+                
+                self.oauthswift.client.setUserDetails(myCred.oauth_token, secret: myCred.oauth_token_secret)
+                }, failure: {(error:NSError!) -> Void in
+                    println(error.localizedDescription)
+                    println("ERROR")
+                }
+            )
             
-            }, failure: {(error:NSError!) -> Void in
-                println(error.localizedDescription)
-                println("ERROR")
-            }
-        )
+        }
+        
+        
+        // OAuth1.0
+        
+         return true
         
         
         
-        return true
+        
+      
     }
+
+    func cacheExpired(cache: NSUserDefaults, duration: Int) -> Bool {
+        if let tokenNotNill = cache.objectForKey("expirationObject") as? NSDate {
+            println("Copmaring cache object")
+            var expirationObject = cache.objectForKey("expirationObject") as! NSDate
+            
+            let cal = NSCalendar.currentCalendar()
+            
+            
+            //let components = cal.components( .CalendarUnitSecond, fromDate: expirationObject, toDate: NSDate(), options: nil)
+            let components = cal.components( .CalendarUnitMinute, fromDate: expirationObject, toDate: NSDate(), options: nil)
+            if (components.minute >= duration) {
+                println("\(components.minute) is bigger than or equal to \(duration), clearing cache and creating new expiration object")
+                self.clearCache(cache)
+                cache.setObject(NSDate(), forKey: "expirationObject")
+                cache.synchronize()
+                return true
+            }
+            println(components.minute)
+            return false;
+            
+            
+            
+            
+        } else {
+            println("Creating new exp cache object")
+            cache.setObject(NSDate(), forKey: "expirationObject")
+            return false
+        }
+    }
+    
+    func clearCache(cache: NSUserDefaults) {
+        cache.removeObjectForKey("oauth_token")
+        cache.removeObjectForKey("oauth_token_secret")
+        cache.removeObjectForKey("expirationObject")
+        cache.synchronize()
+    }
+    
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
         println(url)
         if (url.host == "oauth-callback") {
